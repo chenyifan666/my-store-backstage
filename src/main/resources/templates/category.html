@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/top.css"></link>
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link rel="stylesheet" href="css/amazeui.min.css" />
+    <link rel="stylesheet" href="css/pageStyle.css">
+    <link rel="stylesheet" href="css/left.css"></link>
+</head>
+<body>
+<header>
+    <div class="admin_top">
+        <div class="top_left">
+            码蚁商城
+        </div>
+        <div class="h_top_right">
+            <img src="images/user_icon.png" alt="">
+            <span>码蚁小强</span>
+        </div>
+    
+    </div>
+</header>
+<div id="left" style="width: 250px;background-color: #283643; height: 800px;float: left;">
+    <ul class="left_ul">
+        <li class="left_li"><a class="left_a" href="category.html" target="mainFrame"><i></i>分类管理</a></li>
+        <li class="left_li"><a class="left_a" href="goods.html" target="mainFrame"><i></i>商品管理</a></li>
+        <li class="left_li"></i><a class="left_a" href="user.html" target="mainFrame"><i style="background-image: url(images/admin_icon.png);"></i>用户管理</a></li>
+    </ul>
+</div>
+<div id="main" style="width: 1080px;float: right;">
+    <div class="main_top">
+        <div class="am-cf am-padding am-padding-bottom-0">
+            <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">分类管理</strong><small></small></div>
+        </div>
+        <hr>
+        <div class="am-g">
+            <div class="am-u-sm-12 am-u-md-6">
+                <div class="am-btn-toolbar">
+                    <div class="am-btn-group am-btn-group-xs">
+                        <button id="add" class="am-btn am-btn-default">
+                            <span class="am-icon-plus"></span> 添加分类</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="goods_list" id="account_List" style="height: 500px;">
+        <ul class="title_ul">
+            <li>序号</li>
+            <li>分类名称</li>
+            <li>修改分类</li>
+            <li>删除分类</li>
+        </ul>
+    
+        <ul class="list_goods_ul">
+            <li>01</li>
+            <li>分类名称</li>
+            <li><a href="#"><img class="img_icon" src="images/edit_icon.png" alt=""></a></li>
+            <li><a href="#"><img class="img_icon" src="images/delete_icon.png" alt=""></a></li>
+        </ul>
+        <!--分页-->
+        <div id="page" class="page_div">aaa</div>
+    </div>
+      
+    
+</div>
+
+
+
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/paging.js"></script>
+<script>
+    //分页
+    $("#page").paging({
+        pageNo:5,
+        totalPage: 10,
+        totalSize: 300,
+        callback: function(num) {
+            alert(num);
+        }
+    });
+
+    $("#add").click(function () {
+        $(window).attr('location','edit.jsp');
+    });
+
+    $(function () {
+        $('#add').click(function () {
+            $("#modal_view").fadeIn();
+            $("#modal_content").fadeIn();
+        });
+
+        $("#close").click(function () {
+            $("#modal_view").fadeOut();
+            $("#modal_content").fadeOut();
+        });
+    });
+</script>
+</body>
+</html>

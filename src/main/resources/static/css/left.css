@@ -1,0 +1,33 @@
+body{
+    border-top: 1px solid;
+}
+.left_ul{
+    width: 250px;
+    padding-top: 50px;
+}
+.left_li{
+    color: #B5B5B5;
+    width: 250px;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid rgba(107, 108, 109, 0.19);
+    position: relative;
+}
+.left_a{
+    display: block;
+    width: 250px;
+    height: 50px;
+    color: #B5B5B5;
+    background: transparent;
+    text-shadow: none;
+    font-size: 15px;
+    text-decoration: none;
+    float: left;
+    padding-left: 50px;
+}
+.left_a:hover{
+    color: white;
+    text-decoration: none;
+}
+
+
