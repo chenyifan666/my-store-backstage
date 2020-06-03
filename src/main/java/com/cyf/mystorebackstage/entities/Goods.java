@@ -20,6 +20,9 @@ public class Goods {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "price")
+    private Double price;
+
     @Column(name = "category_id")
     private String categoryId;
 
