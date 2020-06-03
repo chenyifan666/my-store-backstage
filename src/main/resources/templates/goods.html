@@ -28,7 +28,7 @@
     <ul class="left_ul">
         <li class="left_li"><a class="left_a" th:href="@{/category}"><i></i>分类管理</a></li>
         <li class="left_li"><a class="left_a" th:href="@{/goods}"><i></i>商品管理</a></li>
-        <li class="left_li"></i><a class="left_a" th:href="@{/user}"><i style="background-image: url(images/admin_icon.png);"></i>用户管理</a></li>
+        <li class="left_li"></i><a class="left_a" th:href="@{/user}"><i></i>用户管理</a></li>
     </ul>
 </div>
 <div id="main" style="width: 1080px;float: right">
@@ -159,7 +159,7 @@
     });
 
     $("#add").click(function () {
-        $(window).attr('location','edit.html');
+        $(window).attr('location','/addgoods');
     });
 
     $(function () {
