@@ -51,7 +51,7 @@
             </div>
             <div class="am-u-sm-12 am-u-md-3">
                 <div class="am-input-group am-input-group-sm">
-                    <input type="text" class="am-form-field" id="input_search">
+                    <input type="text" class="am-form-field" id="input_search" th:value="${name}">
                     <span class="am-input-group-btn">
                         <button class="am-btn am-btn-default" type="button" id="input_search_btn">搜索</button>
                     </span>
@@ -94,11 +94,14 @@
 <script>
     //分页
     $("#page").paging({
-        pageNo:5,
-        totalPage: 10,
-        totalSize: 300,
+        pageNo:[[${pageNo}]],
+        totalPage: [[${totalPage}]],
+        totalSize: [[${totalSize}]],
         callback: function(num) {
-            alert(num);
+            var key = $("#input_search").val();
+            var page = [[${pageNo}]];
+            var uri = "/admin/goods/list/"+num+"?name="+key;
+            $(window).attr('location',uri);
         }
     });
 
@@ -116,6 +119,12 @@
             $("#modal_view").fadeOut();
             $("#modal_content").fadeOut();
         });
+
+        $("#input_search_btn").click(function () {
+            var key = $("#input_search").val();
+            var uri = "/admin/goods/list/1"+"?name="+key;
+            $(window).attr('location',uri);
+        })
     });
 </script>
 </body>
