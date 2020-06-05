@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="css/style.css" type="text/css" />
-    <link rel="stylesheet" href="css/amazeui.min.css" />
+    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css" />
+    <link rel="stylesheet" th:href="@{/css/amazeui.min.css}" />
 </head>
 <body>
 
@@ -14,25 +14,24 @@
     </div>
     <hr>
 
-    <div class="edit_content">
+    <form id="goodsAddForm" enctype="multipart/form-data" th:method="post" action="/admin/goods/save" class="edit_content">
 
         <div class="item1">
             <div>
                 <span>商品名称：</span>
-                <input type="text" class="am-form-field" >&nbsp;&nbsp;
+                <input name="name" type="text" class="am-form-field" >&nbsp;&nbsp;
             </div>
             <div>
                 <span>商品价格：</span>
-                <input type="text" class="am-form-field" >
+                <input name="price" type="text" class="am-form-field" >
             </div>
 
         </div>
 
         <div class="item1">
                 <span>所属分类：</span>
-                 <select id="category_select">&nbsp;&nbsp;
-                    <option value="1">所属分类</option>
-                     <option value="0">否</option>
+                 <select id="category_select" name="categoryId">&nbsp;&nbsp;
+                    <option  th:value="${category.id}" th:text="${category.name}" th:each="category:${categoryList}">所属分类</option>
                  </select>
         </div>
 
@@ -43,21 +42,21 @@
         
         <div class="item1 item_desc">
             <span>商品描述：</span>
-            <textarea  id="desc" name="pdesc" rows="4" cols="50"></textarea>
+            <textarea name="describe" id="desc" rows="4" cols="50"></textarea>
         </div>
         <button class="am-btn am-btn-default" type="button" id="add">添加</button>
         &nbsp;&nbsp;&nbsp;&nbsp;
         <button class="am-btn am-btn-default" type="button" id="reset">重置</button>
-    </div>
+    </form>
 
 
 </div>
 
-<script src="js/jquery.min.js"></script>
+<script th:src="@{/js/jquery.min.js}"></script>
 
 <script>
     $("#add").click(function () {
-        $(window).attr('location','main.jsp');
+        $("#goodsAddForm").submit();
     });
     
     $("#reset").click(function () {

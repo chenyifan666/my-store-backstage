@@ -13,4 +13,6 @@ public interface GoodsService {
     Page<Goods> getGoodsPage(int page,int size);
 
     Page<Goods> getGoodsPageByGoods(int page,int size,Goods goods);
+
+    void saveGoods(Goods goods);
 }

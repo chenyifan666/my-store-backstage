@@ -29,7 +29,7 @@ public class Goods {
     @Column(name = "img")
     private String img;
 
-    @Column(name = "describe")
+    @Column(name = "goods_describe")
     private String describe;
 
     @Column(name = "create_date")

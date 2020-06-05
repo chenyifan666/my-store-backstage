@@ -11,9 +11,12 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import javax.persistence.GenerationType;
+import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class GoodsServiceImpl implements GoodsService {
@@ -45,5 +48,21 @@ public class GoodsServiceImpl implements GoodsService {
         Pageable pageable = PageRequest.of(page,size,sort);
         Page<Goods> goodsListPage = goodsRepository.findAll(example,pageable);
         return goodsListPage;
+    }
+
+    @Override
+    public void saveGoods(Goods goods) {
+        if(StringUtils.isEmpty(goods.getId())){
+            goods.setId(UUID.randomUUID().toString());
+        }else{
+            if(StringUtils.isEmpty(goods.getImg())){
+                Goods oldGoods = goodsRepository.findById(goods.getId()).orElse(null);
+                if(oldGoods!=null){
+                    goods.setImg(oldGoods.getImg());
+                }
+            }
+        }
+        goods.setCreateDate(new Date());
+        goodsRepository.save(goods);
     }
 }
