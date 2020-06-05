@@ -54,15 +54,13 @@ public class GoodsServiceImpl implements GoodsService {
     public void saveGoods(Goods goods) {
         if(StringUtils.isEmpty(goods.getId())){
             goods.setId(UUID.randomUUID().toString());
-        }else{
-            if(StringUtils.isEmpty(goods.getImg())){
-                Goods oldGoods = goodsRepository.findById(goods.getId()).orElse(null);
-                if(oldGoods!=null){
-                    goods.setImg(oldGoods.getImg());
-                }
-            }
         }
         goods.setCreateDate(new Date());
         goodsRepository.save(goods);
+    }
+
+    @Override
+    public Goods getGoodsById(String id) {
+        return goodsRepository.findById(id).get();
     }
 }

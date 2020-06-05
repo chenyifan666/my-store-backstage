@@ -17,15 +17,13 @@
     <form id="goodsAddForm" enctype="multipart/form-data" th:method="post" action="/admin/goods/save" class="edit_content">
 
         <div class="item1">
-            <input th:type="hidden" th:name="id" th:value="${goods.id}">
-            <input th:type="hidden" th:name="img" th:value="${goods.img}">
             <div>
                 <span>商品名称：</span>
-                <input name="name" th:value="${goods.name}" type="text" class="am-form-field" >&nbsp;&nbsp;
+                <input name="name" type="text" class="am-form-field" >&nbsp;&nbsp;
             </div>
             <div>
                 <span>商品价格：</span>
-                <input name="price" th:value="${goods.price}" type="text" class="am-form-field" >
+                <input name="price" type="text" class="am-form-field" >
             </div>
 
         </div>
@@ -33,7 +31,7 @@
         <div class="item1">
                 <span>所属分类：</span>
                  <select id="category_select" name="categoryId">&nbsp;&nbsp;
-                    <option  th:value="${category.id}" th:selected="${category.id==goods.categoryId}" th:text="${category.name}" th:each="category:${categoryList}">所属分类</option>
+                    <option  th:value="${category.id}"  th:text="${category.name}" th:each="category:${categoryList}">所属分类</option>
                  </select>
         </div>
 
@@ -44,9 +42,9 @@
         
         <div class="item1 item_desc">
             <span>商品描述：</span>
-            <textarea name="describe" th:text="${goods.describe}" id="desc" rows="4" cols="50"></textarea>
+            <textarea name="describe"  id="desc" rows="4" cols="50"></textarea>
         </div>
-        <button class="am-btn am-btn-default" type="button" id="add">编辑</button>
+        <button class="am-btn am-btn-default" type="button" id="add">添加</button>
         &nbsp;&nbsp;&nbsp;&nbsp;
         <button class="am-btn am-btn-default" type="button" id="reset">重置</button>
     </form>

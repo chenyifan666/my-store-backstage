@@ -77,7 +77,7 @@
             <li><img th:src="@{'/images/'+${goods.img}}" alt=""></li>
             <li th:text="${goods.name}">商品名称</li>
             <li th:text="${goods.price}">商品价格</li>
-            <li><a href="#"><img class="img_icon" th:src="@{/images/edit_icon.png}" alt=""></a></li>
+            <li><a th:href="@{'/admin/goods/view/'+${goods.id}}"><img class="img_icon"  th:src="@{/images/edit_icon.png}" alt=""></a></li>
             <li><a href="#"><img class="img_icon" th:src="@{/images/delete_icon.png}" alt=""></a></li>
         </ul>
         <!--分页-->

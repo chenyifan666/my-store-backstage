@@ -51,7 +51,7 @@ public class GoodsController {
     public String toAdd(Map map){
         List<Category> categoryList = categoryService.getList();
         map.put("categoryList",categoryList);
-        return "edit_goods";
+        return "add_goods";
     }
 
     @PostMapping("/save")
@@ -73,5 +73,14 @@ public class GoodsController {
             e.printStackTrace();
         }
         return "redirect:/admin/goods/list/1";
+    }
+
+    @GetMapping("/view/{id}")
+    public String view(@PathVariable("id") String id,Map map){
+        Goods goods = goodsService.getGoodsById(id);
+        List<Category> categoryList = categoryService.getList();
+        map.put("categoryList",categoryList);
+        map.put("goods",goods);
+        return "edit_goods";
     }
 }
